@@ -1,0 +1,18 @@
+.input {
+  margin-top: .1em;
+  width: 500px;
+  padding: .5em;
+  box-sizing: border-box;
+}
+
+.label {
+  display: block;
+  font-weight: 700;
+  color: #666666;
+  margin-bottom: .1em;
+}
+
+.errorMsg {
+  font-size: 14px;
+  color: red;
+}
