@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 
 import { UserContext } from "../../context/UserContext";
 import RegisterForm from "./RegisterForm";
+import submitRegistration from "./SubmitRegistration";
 
 const Register = () => {
     const [user, setUser] = useState([]);
@@ -13,26 +14,9 @@ const Register = () => {
         setUser({ ...user, [e.target.id]: e.target.value });
     };
 
-    const submitRegistration = async () => {
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-            body: JSON.stringify({ username: user.username, email: user.email, full_name: user.full_name, hashed_password: user.password })
-        };
-
-        const response = await fetch('register/', requestOptions);
-        const data = await response.json();
-
-        if (!response.ok) {
-            setError(data.detail);
-        } else {
-            setToken(data.access_token)
-        }
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        submitRegistration();
+        submitRegistration(user, setError, setToken);
     }
 
 

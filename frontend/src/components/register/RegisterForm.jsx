@@ -17,8 +17,8 @@ const RegisterForm = ({ onChange, user, error }) => {
                 label="Username"
                 onChange={onChange}
                 value={user.username}
-                errorMsg={error.name}
-                inputStyle={error.name ? invalidInputCss : validInputCss}
+                errorMsg={error.username}
+                inputStyle={error.username ? invalidInputCss : validInputCss}
             />
             <FormItem
                 placeholder="Email"
@@ -28,7 +28,7 @@ const RegisterForm = ({ onChange, user, error }) => {
                 onChange={onChange}
                 value={user.email}
                 errorMsg={error.email}
-                inputStyle={error.sku ? invalidInputCss : validInputCss}
+                inputStyle={error.email ? invalidInputCss : validInputCss}
             />
             <FormItem
                 placeholder="Full Name"
@@ -36,19 +36,19 @@ const RegisterForm = ({ onChange, user, error }) => {
                 id="full_name"
                 label="Full Name"
                 onChange={onChange}
-                value={user.brand}
-                errorMsg={error.brand}
-                inputStyle={error.brand ? invalidInputCss : validInputCss}
+                value={user.full_name}
+                errorMsg={error.full_name}
+                inputStyle={error.full_name ? invalidInputCss : validInputCss}
             />
             <FormItem
-                placeholder="password"
+                placeholder="Password"
                 type="text"
                 id="password"
                 label="Password"
                 value={user.password}
                 onChange={onChange}
-                errorMsg={error.quantity}
-                inputStyle={error.quantity ? invalidInputCss : validInputCss}
+                errorMsg={error.password}
+                inputStyle={error.password ? invalidInputCss : validInputCss}
             />
         </div>
     );
