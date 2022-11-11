@@ -3,29 +3,21 @@ import React from "react";
 import Register from './components/register/Register';
 import Login from './components/login/Login';
 import Navbar from './components/navbar/Navbar';
-import Home from './components/Home';
-import LocationNotFound from './components/LocationNotFound';
+import Home from './components/home/Home';
+import { Route, Routes } from "react-router-dom"
 
 
 const App = () => {
-  let component
-  switch (window.location.pathname) {
-    case "/":
-      component = <Home />
-      break
-    case "/login":
-      component = <Login />
-      break
-    case "/register":
-      component = <Register />
-      break
-    default:
-      component = <LocationNotFound />
-  }
   return (
     <>
       <Navbar />
-      {component}
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </div>
     </>
   )
 }

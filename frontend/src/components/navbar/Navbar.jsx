@@ -1,17 +1,26 @@
+import { Link, resolvePath, useMatch, useResolvedPath } from "react-router-dom"
 import styles from "./Navbar.module.css"
 
 export default function Navbar() {
     return (
         <nav className={styles.nav}>
-            <a className={styles.siteTitle} href="/">Trees</a>
+            <Link className={styles.siteTitle} to="/">Trees</Link>
             <ul className={styles.tabsList}>
-                <li className={styles.tabContainer}>
-                    <a className={styles.tab} href="/register">Register</a>
-                </li>
-                <li className={styles.tabContainer}>
-                    <a className={styles.tab} href="/login">Login</a>
-                </li>
+                <CustomLink className={styles.tab} to="/register">Register</CustomLink>
+                <CustomLink className={styles.tab} to="/login">Login</CustomLink>
             </ul>
         </nav>
+    )
+}
+
+function CustomLink({ to, children, ...props }) {
+    const resolvedPath = useResolvedPath(to)
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+    return (
+        <li className={isActive ? styles.tabContainerActive : styles.tabContainer}>
+            <Link to={to} {...props}>
+                {children}
+            </Link>
+        </li>
     )
 }

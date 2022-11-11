@@ -35,7 +35,8 @@
     padding: .25rem;
 }
 
-.tabContainer:active {
+
+.tabContainerActive {
     background-color: #555;
 }
 
