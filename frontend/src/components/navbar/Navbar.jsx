@@ -8,6 +8,7 @@ export default function Navbar() {
             <ul className={styles.tabsList}>
                 <CustomLink className={styles.tab} to="/register">Register</CustomLink>
                 <CustomLink className={styles.tab} to="/login">Login</CustomLink>
+                <CustomLink className={styles.tab} to="/profile">Profile</CustomLink>
             </ul>
         </nav>
     )

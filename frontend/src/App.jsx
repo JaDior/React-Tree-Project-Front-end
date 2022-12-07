@@ -3,8 +3,9 @@ import React from "react";
 import Register from './components/register/Register';
 import Login from './components/login/Login';
 import Navbar from './components/navbar/Navbar';
-import Home from './components/home/Home';
 import { Route, Routes } from "react-router-dom"
+import Profile from './components/profile/Profile';
+import HomePage from './components/home/HomePage';
 
 
 const App = () => {
@@ -13,9 +14,10 @@ const App = () => {
       <Navbar />
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </>

@@ -1,0 +1,85 @@
+
+.backButton {
+  background: whitesmoke;
+  height: 3em;
+  margin-top: 50px;
+  width: 12%;
+  font-size: 14px;
+  font-weight:bolder;
+  margin-right: 10px;
+}
+.edit {
+  background: whitesmoke;
+  height: 3em;
+  margin-top: 50px;
+  width: 12%;
+  font-size: 14px;
+  font-weight:bolder;
+  margin-left: 10px;
+}
+.nameDisplay, .lastNameDisplay{
+  background-color: white;
+  float: left;
+  height: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  display: block;
+  border-color: white;
+  border-style: solid;
+  color: black;
+}
+.nameInput, .lastNameInput {
+  float: left;
+  height: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  display: block;
+  background-color: lightgray;
+}
+.profile {
+  width: 700px;
+  padding-top: 70px;
+  padding-bottom: 40px;
+  text-align: center;
+  position: relative;
+  margin: auto;
+  display: block;
+}
+.profileDisplay{
+  border-color: white;
+  border-style: solid;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 10px;
+  color: black;
+}
+.profileInput{
+  border-color:black;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 10px;
+  color:black;  
+  background-color: lightgray;
+}
+.userinfo{
+    text-align: left;
+}
+.userBox {
+  text-align: left;
+  background: white;
+  border-style: solid;
+  padding-top: 1.5em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  padding-right: 1em;
+}
+.usersName {
+  margin-top:10px;
+  float: left;
+  height: 30px;
+  font-weight: bold;
+  font-size: 25px;
+}
+h2, h3, h4{
+  color: black;
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import FormItem from '../form/FormItem';
+import PasswordStrengthMeter from './register-validation/PasswordStrengthMeter';
 
-const RegisterForm = ({ onChange, user, usernameError, emailError }) => {
+const RegisterForm = ({ dataHandler, onChange, user, usernameError, emailError, passwordError }) => {
     const invalidInputCss = {
         border: '4px solid red'
     };
@@ -40,12 +41,15 @@ const RegisterForm = ({ onChange, user, usernameError, emailError }) => {
             />
             <FormItem
                 placeholder="Password"
-                type="text"
+                type="password"
                 id="password"
                 label="Password"
                 value={user.password}
                 onChange={onChange}
+                errorMsg={passwordError}
+                inputStyle={passwordError ? invalidInputCss : validInputCss}
             />
+            <PasswordStrengthMeter password={user.password} actions={dataHandler} />
         </div>
     );
 };
