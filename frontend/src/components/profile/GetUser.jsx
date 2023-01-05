@@ -1,11 +1,12 @@
-export default async function GetAllPublicTrees(token, setTrees, setApiError) {
+export default async function getUser(setUser, setApiError) {
     const requestOptions = {
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
+            Authorization: "Bearer " + localStorage.getItem("thisGuysToken"),
         },
     };
-    await fetch('users/trees/public', requestOptions)
+    await fetch('user/me/', requestOptions)
         .then(async response => {
             const isJson = response.headers.get('content-type')?.includes('application/json');
             const data = isJson && await response.json();
@@ -17,13 +18,11 @@ export default async function GetAllPublicTrees(token, setTrees, setApiError) {
                 return Promise.reject(error);
             }
 
-            setTrees(data);
+            setUser(data);
+            console.log(data);
         })
         .catch(error => {
-            if (error === 401) {
-                setApiError(`Error ${error}: You Are Unauthorized, please login to gain access to public trees`);
-            } else if (error === 500) {
-                setApiError(`Error ${error}: The Server Is Down`);
-            }
+            setApiError(`Error: ${error}`);
+            console.error('There was an error!', error);
         });
-}
+};

@@ -9,11 +9,12 @@ import passwordValidation from "./register-validation/PasswordValidation";
 import usernameValidaiton from "./register-validation/UsernameValidation";
 import RegisterForm from "./RegisterForm";
 import submitRegistration from "./SubmitRegistration";
+import styles from "./Register.module.css"
 
 const Register = () => {
     let navigate = useNavigate();
     const [user, setUser] = useState({ username: "", email: "", full_name: "", password: "" });
-    const [apiError, setApiError] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     const [usernameError, setUsernameError] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
@@ -45,15 +46,16 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (usernameError === "" && emailError === "") {
-            submitRegistration(user, setApiError);
+            submitRegistration(user, setErrorMessage);
             const creds = { username: user.username, password: user.password }
-            submitLogin(creds, setToken);
+            submitLogin(creds, setToken, setErrorMessage, navigate);
         }
     }
 
 
     return (
         <div className="register-form">
+            {!errorMessage ? <div /> : <h2 className={styles.error}>{errorMessage}</h2>}
             <form onSubmit={handleSubmit}>
                 <h1 className="register-title">Register</h1>
                 <RegisterForm

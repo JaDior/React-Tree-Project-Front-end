@@ -1,8 +1,7 @@
 
 
 import React, { useState, useContext } from "react";
-
-import ErrorMessage from "../ErrorMessage";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import LoginForm from "./LoginForm";
 import submitLogin from "./SubmitLogin";
@@ -12,14 +11,19 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [, setToken] = useContext(UserContext);
 
+    const navigate = useNavigate();
+
+
     const onCredentialChange = (e) => {
         setCreds({ ...creds, [e.target.id]: e.target.value });
     };
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        submitLogin(creds, setToken, setErrorMessage);
+        submitLogin(creds, setToken, setErrorMessage, navigate);
     };
+
 
     return (
         <div className="column">

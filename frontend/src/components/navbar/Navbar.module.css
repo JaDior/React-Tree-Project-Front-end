@@ -1,5 +1,5 @@
 .nav {
-    background-color: #333;
+    background-image: linear-gradient(#294900 0%, #00521b 50%, #00351f 100%);
     color: white;
     display: flex;
     justify-content: space-between;
@@ -37,7 +37,8 @@
 
 
 .tabContainerActive {
-    background-color: #555;
+    background-image: linear-gradient(to right, #172900 0%, #013512 50%, #172900 100%);
+    padding: .25rem;
 }
 
 .tabContainer:hover {

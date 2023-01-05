@@ -1,0 +1,45 @@
+.backButton {
+  background-image: linear-gradient(to right, #320e0e 0%, #570606 50%, #320e0e 100%);
+  color: #eaf3eb;
+  cursor: pointer;
+  font-weight: 600px;
+  height: 2em;
+  justify-self: center;
+  width: 23%;
+  margin-right: 20px;
+  margin-top: 70px;
+}
+
+.cancelEditProfileModalBackground {
+  opacity: 1 !important;
+  background: rgb(238, 243, 222);
+  border-radius: 2px;
+  box-shadow: .2em .2em .2em rgba(0, 0, 0, 0.23);
+  padding: 1em;
+  margin: 300px 450px 300px 450px;
+}
+
+.modalContainer {
+  align-self: center;
+}
+
+.returnButton {
+  background-image: linear-gradient(to right, #12320e 0%, #315706 50%, #12320e 100%);
+  border-radius: 2px;
+  color: #EEEEEE;
+  cursor: pointer;
+  height: 2em;
+  width: 23%;
+  margin-left: 20px;
+  margin-top: 70px;
+}
+
+.overlay {
+  background-color: rgba(155, 155, 155, .90);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+}

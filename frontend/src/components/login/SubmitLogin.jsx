@@ -1,4 +1,4 @@
-export default async function submitLogin(creds, setToken, setErrorMessage) {
+export default async function submitLogin(creds, setToken, setErrorMessage, navigate) {
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -6,7 +6,6 @@ export default async function submitLogin(creds, setToken, setErrorMessage) {
             `grant_type=&username=${creds.username}&password=${creds.password}&scope=&client_id=&client_secret=`
         ),
     };
-
     const response = await fetch("/token", requestOptions);
     const data = await response.json();
 
@@ -14,5 +13,6 @@ export default async function submitLogin(creds, setToken, setErrorMessage) {
         setErrorMessage(data.detail);
     } else {
         setToken(data.access_token);
+        navigate("/");
     }
 }

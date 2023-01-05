@@ -1,0 +1,23 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(30, 56, 0, 0.356);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(28, 77, 0, 0.534);
+}
+
+.cardContainer {
+    padding: 2px 16px;
+}
+
+.treepicture {
+    height: auto;
+    max-height: 250px;
+    width: auto;
+    max-width: 250px;
+}
+
+.treeDetail {
+    color: rgb(0, 0, 0);
+}
