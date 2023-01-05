@@ -6,6 +6,7 @@ import Navbar from './components/navbar/Navbar';
 import { Route, Routes } from "react-router-dom"
 import Profile from './components/profile/Profile';
 import HomePage from './components/home/HomePage';
+import MyTreesPage from './components/my_trees/MyTreesPage';
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/my-trees" element={<MyTreesPage />} />
         </Routes>
       </div>
     </>
