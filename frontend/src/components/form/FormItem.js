@@ -14,8 +14,9 @@ const FormItem = ({
     <label className={styles.label} htmlFor={id}>
       {label}
       <div className={styles.errorMsg}>
-        {errorMsg}
-        <br />
+        <div>
+          {errorMsg}
+        </div>
         <input
           style={inputStyle}
           className={styles.input}

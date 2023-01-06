@@ -8,7 +8,7 @@ import createTree from "./CreateTree";
 export default function CreateTreeModal(props) {
 
     const [token] = useContext(UserContext);
-    const [tree, setTree] = useState([]);
+    const [tree, setTree] = useState({ file: "", private: false, name: "", species: "", genus: "" });
     const [file, setFile] = useState([]);
     const [apiError, setApiError] = useState("");
 
@@ -19,16 +19,17 @@ export default function CreateTreeModal(props) {
             setFile(files[0]);
         }
         setTree({ ...tree, [e.target.id]: e.target.value });
-
-        console.log(e.target.value);
-        console.log(e.target.files[0]);
     }
 
 
     const onSubmit = () => {
         const formData = new FormData();
         formData.append("file", file, file.name);
-        createTree(token, tree, formData, setApiError);
+        formData.append("private", tree.private);
+        formData.append("name", tree.name);
+        formData.append("species", tree.species);
+        formData.append("genus", tree.genus);
+        createTree(token, formData, setApiError);
         props.toggleCreateTree();
     }
 
@@ -39,7 +40,7 @@ export default function CreateTreeModal(props) {
                 <div className={styles.modalContainer}>
                     <form id="createTreeForm" >
                         <FormItem
-                            type="chackbox"
+                            type="checkbox"
                             id="private"
                             label="Private"
                             onChange={onChange}
@@ -69,7 +70,7 @@ export default function CreateTreeModal(props) {
                         <FormItem
                             type="file"
                             id="img"
-                            label="Full Name"
+                            label="File"
                             onChange={onChange}
                             value={tree.img}
                         />

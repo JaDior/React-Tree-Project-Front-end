@@ -13,9 +13,11 @@
 
 .treepicture {
     height: auto;
-    max-height: 250px;
+    max-height: 300px;
     width: auto;
-    max-width: 250px;
+    max-width: 400px;
+    block-size: 600px;
+    aspect-ratio: 3/2;
 }
 
 .treeDetail {

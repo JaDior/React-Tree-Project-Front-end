@@ -47,8 +47,7 @@ const Register = () => {
         e.preventDefault();
         if (usernameError === "" && emailError === "") {
             submitRegistration(user, setErrorMessage);
-            const creds = { username: user.username, password: user.password }
-            submitLogin(creds, setToken, setErrorMessage, navigate);
+            navigate("/login");
         }
     }
 
