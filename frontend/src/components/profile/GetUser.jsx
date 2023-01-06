@@ -1,9 +1,9 @@
-export default async function getUser(setUser, setApiError) {
+export default async function getUser(setUser, token, setApiError) {
     const requestOptions = {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + localStorage.getItem("thisGuysToken"),
+            Authorization: "Bearer " + token,
         },
     };
     await fetch('user/me/', requestOptions)

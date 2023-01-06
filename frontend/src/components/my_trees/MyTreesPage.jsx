@@ -5,6 +5,7 @@ import { UserContext } from "../../context/UserContext";
 import GetMyTrees from "./GetMyTrees";
 import CreateTreeModal from "../create_tree/CreateTreeModal";
 import DeleteMyTree from "./DeleteMyTree";
+import TreePage from "../treepage/TreePage";
 
 export default function MyTreesPage() {
     const [token] = useContext(UserContext);
@@ -37,14 +38,7 @@ export default function MyTreesPage() {
                                     <button className={styles.createButton} onClick={toggleCreateTree}>Create Tree</button>
                                 </div>
                             </div>
-                            <div className={styles.cards}>
-                                {trees.map((tree) => (
-                                    <div key={tree.id}>
-                                        <button type="submit" className={styles.deleteButton} onClick={() => { DeleteMyTree(token, tree.id) }}>Delete</button>
-                                        <TreeCard tree={tree} />
-                                    </div>
-                                ))}
-                            </div>
+                            <TreePage trees={trees} token={token} />
                         </div>
                     </>
             }

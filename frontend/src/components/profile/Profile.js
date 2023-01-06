@@ -22,7 +22,7 @@ const Profile = ({toggleEffect, setToggleEffect }) => {
 
 
   useEffect(() => {
-    getUser(setUser, setApiError)
+    getUser(setUser, token, setApiError)
   }, [])
 
 

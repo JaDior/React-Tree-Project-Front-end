@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import GetAllPublicTrees from "./GetAllPublicTrees";
 import styles from "./HomePage.module.css"
-import TreeCard from "../tree_card/TreeCard";
 import { UserContext } from "../../context/UserContext";
+import TreePage from "../treepage/TreePage";
 
 export default function HomePage() {
     const [token] = useContext(UserContext);
@@ -15,13 +15,7 @@ export default function HomePage() {
     return (
         <div className={styles.wholePage}>
             {!apiError ? <h1>Home</h1> : <h2 className={styles.error}>{apiError}</h2>}
-            <div className={styles.cards}>
-                {trees.map((tree) => (
-                    <div key={tree.id}>
-                        <TreeCard tree={tree} />
-                    </div>
-                ))}
-            </div>
+            <TreePage trees={trees} token={token} />
         </div>
     )
 }
