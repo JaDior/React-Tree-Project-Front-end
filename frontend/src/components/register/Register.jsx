@@ -1,9 +1,6 @@
 import React from "react";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { UserContext } from "../../context/UserContext";
-import submitLogin from "../login/SubmitLogin";
 import emailValidation from "./register-validation/EmailValidation";
 import passwordValidation from "./register-validation/PasswordValidation";
 import usernameValidaiton from "./register-validation/UsernameValidation";
@@ -18,8 +15,6 @@ const Register = () => {
     const [usernameError, setUsernameError] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-
-    const [, setToken] = useContext(UserContext);
 
     const [isStrength, setStrength] = React.useState(null);
     const dataHandler = async (childData) => {

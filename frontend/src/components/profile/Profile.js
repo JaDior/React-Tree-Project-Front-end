@@ -52,14 +52,6 @@ const Profile = ({toggleEffect, setToggleEffect }) => {
     setToggleEffect(!toggleEffect);
   };
 
-
-  const getInputLength = (string) => {
-    if (string.length > 2) {
-      return string.length - 3;
-    }
-    return 1;
-  };
-
   
   return (
     <div>
@@ -95,7 +87,6 @@ const Profile = ({toggleEffect, setToggleEffect }) => {
           </div>
           <div className={styles.buttonBar}>
             <button type="button" className={styles.standardButton} onClick={toggleEditInfo}>Edit</button>
-            <button type="button" className={styles.standardButton} onClick={toggleCreateTreeForm}>Create Tree</button>
           </div>
         </div>
       )

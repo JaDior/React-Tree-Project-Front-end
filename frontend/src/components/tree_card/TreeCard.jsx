@@ -1,13 +1,17 @@
 import styles from './TreeCard.module.css'
-import DeleteMyTree from '../my_trees/DeleteMyTree'
+import DeleteMyTree from '../treepage/DeleteMyTree'
 import getId from '../utilits/GetId'
 
-export default function TreeCard({ tree, token }) {
+export default function TreeCard({ tree, token, toggleEffect }) {
+    async function onDelete() {
+        await DeleteMyTree(token, tree.id);
+        toggleEffect();
+    }
     return (
         <div className={styles.card} >
             <div className={styles.cardContainer} >
                 {getId(token) === tree.owner_id ?
-                    <button type="submit" className={styles.deleteButton} onClick={() => { DeleteMyTree(token, tree.id) }}>Delete</button> :
+                    <button type="submit" className={styles.deleteButton} onClick={onDelete}>Delete</button> :
                     <br />
                 }
                 <h3>Name: {tree.name}</h3>

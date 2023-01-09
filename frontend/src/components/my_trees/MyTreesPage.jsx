@@ -1,30 +1,35 @@
 import { useState, useEffect, useContext } from "react";
 import styles from "./MyTreesPage.module.css"
-import TreeCard from "../tree_card/TreeCard";
 import { UserContext } from "../../context/UserContext";
 import GetMyTrees from "./GetMyTrees";
 import CreateTreeModal from "../create_tree/CreateTreeModal";
-import DeleteMyTree from "./DeleteMyTree";
 import TreePage from "../treepage/TreePage";
 
 export default function MyTreesPage() {
     const [token] = useContext(UserContext);
     const [trees, setTrees] = useState([]);
     const [createTree, setCreateTree] = useState();
+    const [toggleEff, setToggleEff] = useState();
     useEffect(() => {
         GetMyTrees(token, setTrees);
-    }, []);
+    }, [token, toggleEff]);
+
+    const toggleEffect = () => {
+        setToggleEff(!toggleEff);
+    }
 
     const toggleCreateTree = () => {
         setCreateTree(!createTree);
     }
+
+
     return (
         <div className={styles.wholePage}>
             {
                 //check wheather we want to display the create tree page
                 createTree ?
                     <>
-                        <CreateTreeModal toggleCreateTree={toggleCreateTree} />
+                        <CreateTreeModal toggleCreateTree={toggleCreateTree} toggleEffect={toggleEffect} />
                     </> :
                     <>
                         <div>
@@ -38,7 +43,7 @@ export default function MyTreesPage() {
                                     <button className={styles.createButton} onClick={toggleCreateTree}>Create Tree</button>
                                 </div>
                             </div>
-                            <TreePage trees={trees} token={token} />
+                            <TreePage trees={trees} token={token} toggleEffect={toggleEffect} />
                         </div>
                     </>
             }
