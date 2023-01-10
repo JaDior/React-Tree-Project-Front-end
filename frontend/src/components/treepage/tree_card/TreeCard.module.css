@@ -21,12 +21,12 @@
     cursor: pointer;
     display: inline-block;
     font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 16px;
-    min-height: 40px;
+    min-height: 20px;
     outline: 0;
-    padding: 12px 14px;
+    padding: 6px 7px;
     text-align: center;
     text-rendering: geometricprecision;
     touch-action: manipulation;

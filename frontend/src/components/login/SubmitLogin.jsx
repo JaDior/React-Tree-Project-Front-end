@@ -1,4 +1,4 @@
-export default async function submitLogin(creds, setToken, setErrorMessage, navigate) {
+export default async function submitLogin(creds, setToken, setApiError, navigate) {
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -10,7 +10,7 @@ export default async function submitLogin(creds, setToken, setErrorMessage, navi
     const data = await response.json();
 
     if (!response.ok) {
-        setErrorMessage(data.detail);
+        setApiError(data.detail);
     } else {
         setToken(data.access_token);
         navigate("/");
