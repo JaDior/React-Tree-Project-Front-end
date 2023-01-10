@@ -1,4 +1,4 @@
-import TreeCard from '../tree_card/TreeCard'
+import TreeCard from './tree_card/TreeCard'
 import styles from './TreePage.module.css'
 
 export default function TreePage({ trees, token, toggleEffect }) {

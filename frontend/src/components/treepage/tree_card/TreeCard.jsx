@@ -1,6 +1,6 @@
 import styles from './TreeCard.module.css'
-import DeleteMyTree from '../treepage/DeleteMyTree'
-import getId from '../utilits/GetId'
+import DeleteMyTree from '../DeleteMyTree'
+import getId from '../../utilits/GetId'
 
 export default function TreeCard({ tree, token, toggleEffect }) {
     async function onDelete() {
@@ -15,6 +15,7 @@ export default function TreeCard({ tree, token, toggleEffect }) {
                     <br />
                 }
                 <h3>Name: {tree.name}</h3>
+                <a className={styles.downloadLink} href={tree.img}>Download</a>
                 <img className={styles.treepicture} alt="tree" src={tree.img}></img>
                 <p className={styles.treeDetail}> Species: {tree.species}</p>
                 <p> Genus: {tree.genus}</p>
