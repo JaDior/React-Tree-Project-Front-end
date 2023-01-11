@@ -6,6 +6,8 @@ import CancelEditProfileModal from './edit_user/CancelEditProfileModal';
 import getUser from './GetUser';
 import { UserContext } from '../../context/UserContext';
 import CreateTreeModal from '../create_tree/CreateTreeModal';
+import usernameValidaiton from '../register-validation/UsernameValidation';
+import emailValidation from '../register-validation/UsernameValidation';
 /**
  * @name Profile
  * @description user profile page
@@ -18,6 +20,10 @@ const Profile = ({toggleEffect, setToggleEffect }) => {
   const [editProfileInfo, setEditProfileInfo] = useState(false);
   const [showCancelEditModal, setShowCancelEditModal] = useState(false);
   const [showTreeForm, setShowTreeForm] = useState(false);
+
+  const [usernameError, setUsernameError] = useState("")
+  const [emailError, setEmailError] = useState("")
+
   const [token] = useContext(UserContext);
 
 
@@ -28,6 +34,15 @@ const Profile = ({toggleEffect, setToggleEffect }) => {
 
   const onProfileChange = (e) => {
     setUser({ ...user, [e.target.id]: e.target.value });
+    switch (e.target.id) {
+            case "username":
+                usernameValidaiton(e.target.value, setUsernameError);
+                break;
+            case "email":
+                emailValidation(e.target.value, setEmailError);
+                break;
+            default:
+        }
   };
 
 
@@ -93,7 +108,7 @@ const Profile = ({toggleEffect, setToggleEffect }) => {
         : (
           <div className={styles.profile}>
             {showCancelEditModal ? (<CancelEditProfileModal toggleCancelEditModal={toggleCancelEditModal} toggleEditInfo={toggleEditInfo}/>) : <div />}
-            <EditProfileInline onChange={onProfileChange} profileData={user} user={user} />
+            <EditProfileInline onChange={onProfileChange} user={user} usernameError={usernameError} />
             <button type="button" className={styles.backButton} onClick={toggleCancelEditModal}>Back</button>
             <button type="button" className={styles.edit} onClick={saveProfileInfo}>Save</button>
           </div>

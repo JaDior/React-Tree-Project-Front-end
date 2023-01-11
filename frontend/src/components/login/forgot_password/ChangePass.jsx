@@ -1,27 +1,19 @@
-import styles from "./ForgotPasswordModal.module.css"
-import FormItem from "../../form/FormItem";
+export default async function changePass(code, pass, email, setApiError) {
+    const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            "code": code,
+            "newp": pass,
+            "email": email
+        }),
+    };
+    const response = await fetch("/change-password-with-code", requestOptions);
+    const data = await response.json();
 
-export default function ChangePassword(props) {
-
-    const onChange = (e) => {
-        props.setPassword(e.target.value);
+    if (response.ok) {
+        setApiError(data);
+    } else {
+        setApiError(data);
     }
-
-
-    return (
-        <div className={styles.modalContainer}>
-            <h1>Select your new password</h1>
-            <FormItem
-                type="password"
-                id="password"
-                label="Password"
-                onChange={onChange}
-                value={props.password}
-            />
-            <div className={styles.buttonContainer}>
-                <button className={styles.createButton} onClick={props.onSubmitPageTwo}>Create</button>
-                <button className={styles.backButton} type="button" onClick={props.toggleForgotPassModal}>Back</button>
-            </div>
-        </div>
-    )
 }

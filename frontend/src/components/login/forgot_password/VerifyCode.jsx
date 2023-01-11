@@ -1,15 +1,20 @@
-export default async function verifyCode(setApiError, code) {
+export default async function verifyCode(setApiError, code, incrementPage) {
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code: code }),
+        body: JSON.stringify({
+            "code": code
+        }),
     };
-    const response = await fetch("/verify-email-verification-code", requestOptions);
-    const data = await response.json();
-
-    if (!response.ok) {
-        setApiError(data.detail);
-    } else {
-
+    try {
+        const response = await fetch("/verify-email-verification-code", requestOptions);
+        const data = await response.json();
+        if (response.status === 200) {
+            incrementPage();
+        }
+        setApiError(data.message);
+    }
+    catch {
+        setApiError("something went wrong");
     }
 }

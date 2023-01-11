@@ -1,6 +1,7 @@
 import React from 'react';
 import FormItem from '../form/FormItem';
-import PasswordStrengthMeter from './register-validation/PasswordStrengthMeter';
+import PasswordStrengthMeter from '../register-validation/PasswordStrengthMeter';
+
 
 const RegisterForm = ({ dataHandler, onChange, user, usernameError, emailError, passwordError }) => {
     const invalidInputCss = {

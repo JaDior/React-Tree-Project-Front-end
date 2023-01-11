@@ -5,10 +5,11 @@ import styles from '../Profile.module.css';
  * @description a version of the view profile where the text fields can be edited
  * @returns inputs that will record your input
  */
-const EditProfileInline = ({ onChange, user }) => { // eslint-disable-line
+const EditProfileInline = ({ onChange, user, usernameError }) => { // eslint-disable-line
   return (
     <div className={styles.userBox}>
-        <h4>
+      <h4>
+        {usernameError ? <p>This username is already taken or too short</p> : <></>}
           Username:
           <input
             className={styles.profileInput}
